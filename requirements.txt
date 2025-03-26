@@ -1,1 +1,2 @@
 pytest-xdist==2.2.1
+pytest-html
