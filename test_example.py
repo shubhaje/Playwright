@@ -12,7 +12,7 @@ def test_get_started_link(page: Page):
 
     # Click the get started link.
     page.get_by_role("link", name="Get started").click()
-    print("Execution is successful")
+    print("Execution is successful and the page is loaded.")
 
     # Expects page to have a heading with the name of Installation.
     expect(page.get_by_role("heading", name="Installation")).to_be_visible()
