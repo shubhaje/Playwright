@@ -1,11 +1,31 @@
 pipeline {
-   agent { docker { image 'mcr.microsoft.com/playwright/python:v1.51.0-noble' } }
-   stages {
-      stage('e2e-tests') {
-         steps {
-            sh 'pip install -r requirements.txt'
-            sh 'pytest'
-         }
-      }
-   }
+    agent { 
+        docker { 
+            image 'mcr.microsoft.com/playwright/python:v1.51.0-noble' 
+        } 
+    }
+    stages {
+        stage('Install Dependencies') {
+            steps {
+                sh 'pip install -r requirements.txt'
+            }
+        }
+        stage('Run Tests') {
+            steps {
+                sh 'pytest --maxfail=5 --disable-warnings'
+            }
+        }
+    }
+    post {
+        always {
+            echo 'Cleaning up workspace...'
+            cleanWs()
+        }
+        success {
+            echo 'Tests completed successfully!'
+        }
+        failure {
+            echo 'Tests failed. Please check the logs.'
+        }
+    }
 }
