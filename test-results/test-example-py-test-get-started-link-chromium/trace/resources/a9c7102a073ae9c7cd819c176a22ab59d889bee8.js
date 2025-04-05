@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkplaywright_dev=self.webpackChunkplaywright_dev||[]).push([["7048"],{6112:function(e,a,s){s.d(a,{Z:()=>c});var r=s("5893");s("7294");var t=s("7026"),l=s("147");function c(e){let{...a}=e;return(0,r.jsx)(l.P,{...a,className:(0,t.Z)("alert alert--secondary","details_r1OI",a.className)})}}}]);
