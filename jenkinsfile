@@ -1,5 +1,5 @@
 pipeline {
-   agent { docker { image 'mcr.microsoft.com/playwright/python:v1.51.0-noble' } }
+   docker.image('mcr.microsoft.com/playwright/python:v1.51.0-noble').inside('-v $PWD:/work -w /work') 
    stages {
       stage('e2e-tests') {
          steps {
